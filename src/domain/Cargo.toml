@@ -1,0 +1,15 @@
+[package]
+name = "sensitive-server-domain"
+version = "0.1.0"
+authors = ["whiteCcinn <471113744@qq.com>"]
+edition = "2018"
+description = "domain layer"
+repository = "https://github.com/whiteCcinn/sensitive-server"
+
+
+[dependencies]
+diesel = { version = "1.4", features = ["postgres", "r2d2"] }
+r2d2 = "0.8"
+## logger
+log="0.4"
+log4rs="0.13"

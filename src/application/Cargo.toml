@@ -1,0 +1,10 @@
+[package]
+name = "sensitive-server-application"
+version = "0.1.0"
+authors = ["whiteCcinn <471113744@qq.com>"]
+edition = "2018"
+description = "application layer"
+repository = "https://github.com/whiteCcinn/sensitive-server"
+
+
+[dependencies]
