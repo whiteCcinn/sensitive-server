@@ -33,7 +33,7 @@ appenders:
         base: 0
         count: 5
 loggers:
-  sensitive_server_web: # logger 名称必须与模块名相同, 如 app::request::db, 第一个应该为 crate 名称
+  sensitive_server_web::web: # logger 名称必须与模块名相同, 如 app::request::db, 第一个应该为 crate 名称
     level: debug
     appenders:
       - root
