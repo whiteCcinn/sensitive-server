@@ -17,7 +17,6 @@ fn main() -> Result<(), std::io::Error> {
 
     info!("启动服务");
 
-    domain::connection::A();
    // let state = Repository(Repo::new(&settings.database.connection_string()));
 //    let app = get_app(state);
 //    let address = format!(

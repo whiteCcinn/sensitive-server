@@ -6,5 +6,9 @@ edition = "2018"
 description = "application layer"
 repository = "https://github.com/whiteCcinn/sensitive-server"
 
+[lib]
+name = "sensitive_server_application"
+path = "src/lib.rs"
 
 [dependencies]
+

@@ -5,22 +5,7 @@ members = [
     # domain layer
     "src/domain",
     # infrastructure layer
-#    "src/infrastructure",
+    "src/infrastructure",
     # port layer
     "src/web",
 ]
-
-#
-#[dependencies]
-## applition framework
-#tide = "0.14"
-## coroutine core
-#async-std = { version = "1.6.0", features = ["attributes"] }
-## logger
-#log="0.4"
-#log4rs="0.13"
-## orm
-#diesel=""
-#
-#[dev-dependencies]
-#criterion = "0.3.3"
