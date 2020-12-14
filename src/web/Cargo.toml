@@ -6,6 +6,10 @@ edition = "2018"
 description = "port layer"
 repository = "https://github.com/whiteCcinn/sensitive-server"
 
+[lib]
+name = "sensitive_server_web"
+path = "src/lib.rs"
+
 [[bin]]
 name = "sensitive_server"
 path = "src/main.rs"

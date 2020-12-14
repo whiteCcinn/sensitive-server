@@ -6,10 +6,18 @@ edition = "2018"
 description = "domain layer"
 repository = "https://github.com/whiteCcinn/sensitive-server"
 
+[lib]
+name = "sensitive_server_domain"
+path = "src/lib.rs"
 
 [dependencies]
-diesel = { version = "1.4", features = ["postgres", "r2d2"] }
+thiserror = "1.0"
+anyhow = "1.0"
+chrono = { version = "0.4.6", features = ["serde"] }
+
+[dev-dependencies]
+application = { package = "sensitive-server-web", path = "../web"}
+db = { package = "sensitive-server-infrastructure", path = "../infrastructure" }
+diesel = { version = "1.4", features = ["postgres", "extras", "uuidv07"] }
 r2d2 = "0.8"
-## logger
-log="0.4"
-log4rs="0.13"
+fake = "1.2.2"

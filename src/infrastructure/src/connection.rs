@@ -2,19 +2,18 @@ use diesel::r2d2::ConnectionManager;
 use diesel::Connection;
 use r2d2::{Pool, PooledConnection};
 
-
 /// A database "repository", for running database workloads.
 #[derive(Clone)]
 pub struct Repo<T>
-    where
-        T: Connection + 'static,
+where
+    T: Connection + 'static,
 {
     connection_pool: Pool<ConnectionManager<T>>,
 }
 
 impl<T> Repo<T>
-    where
-        T: Connection + 'static,
+where
+    T: Connection + 'static,
 {
     /// Creates a repo using default configuration for the underlying connection pool.
     pub fn new(database_url: &str) -> Self {
@@ -37,9 +36,4 @@ impl<T> Repo<T>
     pub fn conn(&self) -> PooledConnection<ConnectionManager<T>> {
         self.connection_pool.get().unwrap()
     }
-}
-
-
-pub fn A() {
-    info!("你好");
 }

@@ -16,9 +16,9 @@ appenders:
         pattern: 'log/server.log.{}'
         base: 0
         count: 5
-  web:
+  web_error:
     kind: rolling_file
-    path: "log/web/web.log"
+    path: "log/web/web.log.error"
     encoder:
       kind: pattern
       pattern: "「{T}:{I}」 {d(%Y-%m-%d %H:%M:%S)}[{h({l})}]{{{t}:{L}}}: {m}{n}"
@@ -29,15 +29,15 @@ appenders:
         limit: 3mb
       roller: # rotate 类型
         kind: fixed_window # 直接原有文件 或者用 fixed_window
-        pattern: 'log/web/web.log.{}'
+        pattern: 'log/web/web.log.error.{}'
         base: 0
         count: 5
 loggers:
   sensitive_server_web: # logger 名称必须与模块名相同, 如 app::request::db, 第一个应该为 crate 名称
-    level: debug
+    level: error
     appenders:
       - root
-      - web
+      - web_error
     additive: false
 root:
   level: info

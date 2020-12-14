@@ -6,4 +6,20 @@ edition = "2018"
 description = "infrastructure layer"
 repository = "https://github.com/whiteCcinn/sensitive-server"
 
+[lib]
+name = "sensitive_server_infrastructure"
+path = "src/lib.rs"
+
 [dependencies]
+diesel = { version = "1.4", features = ["postgres", "extras"] }
+r2d2 = "0.8"
+## logger
+log="0.4"
+log4rs="0.13"
+domain = { package = "sensitive-server-domain", path = "../domain"}
+serde = { version= "1", features = ["derive"] }
+chrono = { version = "0.4.6", features = ["serde"] }
+
+[dev-dependencies]
+web = { package = "sensitive-server-web", path = "../web"}
+fake = "1.2.2"

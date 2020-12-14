@@ -3,7 +3,7 @@ members = [
     # application layer
 #    "src/application",
     # domain layer
-#    "src/domain",
+    "src/domain",
     # infrastructure layer
 #    "src/infrastructure",
     # port layer
