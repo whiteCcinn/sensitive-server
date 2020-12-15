@@ -1,12 +1,15 @@
-use crate::models::{SensitiveRegular, NewSensitiveRegular};
-use crate::schema::sensitive_regular;
 use diesel::prelude::*;
-use crate::Repo;
 use diesel::result::Error;
 
-pub fn insert(repo: &Repo, regular: NewSensitiveRegular) -> Result<SensitiveRegular, Error> {
+use crate::Repo;
+use crate::models::{SensitiveRegular, NewSensitiveRegular};
+use crate::schema::sensitive_regular;
+
+use domain::regular::SensitiveRegularQuery;
+
+pub fn insert(repo: &Repo, word: NewSensitiveRegular) -> Result<SensitiveRegular, Error> {
     diesel::insert_into(sensitive_regular::table)
-        .values(&regular)
+        .values(&word)
         .get_result(&repo.conn())
 }
 
@@ -26,4 +29,20 @@ pub fn find(repo: &Repo, pid: i32) -> Result<SensitiveRegular, Error> {
         .filter(id.eq(pid))
         .select(sensitive_regular::all_columns())
         .first(&repo.conn())
+}
+
+
+pub fn fetch_all(repo: &Repo, query: SensitiveRegularQuery) -> Result<Vec<SensitiveRegular>, Error> {
+    use crate::schema::sensitive_regular::dsl::*;
+    let q = sensitive_regular
+        .select(sensitive_regular::all_columns())
+        .into_boxed();
+
+    let q = if let Some(a) = query.regulars {
+        q.filter(regulars.eq(a))
+    } else {
+        q
+    };
+
+    q.load(&repo.conn())
 }

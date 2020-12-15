@@ -6,7 +6,7 @@ use sensitive_server_infrastructure::{Repo, Repository};
 use std::path::PathBuf;
 
 pub fn get_repo() -> Repository {
-    let settings = Config::new(PathBuf::from("../../")).expect("Failed to load configuration");
+    let settings = Config::new_test(PathBuf::from("../../")).expect("Failed to load configuration");
     Repository(Repo::new(&settings.database.connection_string()))
 }
 
@@ -17,7 +17,7 @@ pub fn get_repo() -> Repository {
 /// from the same instance of Repo<PgConnection>
 /// (e.g. no need to drop rows at the end of the test).
 pub fn get_test_repo() -> Repo {
-    let settings = Config::new(PathBuf::from("../../")).expect("Failed to load configuration");
+    let settings = Config::new_test(PathBuf::from("../../")).expect("Failed to load configuration");
     let customizer = TestConnectionCustomizer {};
     let builder = Pool::builder().connection_customizer(Box::new(customizer));
     Repo::from_pool_builder(&settings.database.connection_string(), builder)
