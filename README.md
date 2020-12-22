@@ -8,7 +8,7 @@ The business code layer adopts `DDD` idea
 - web layer
 - application layer
 - domain layer
-- infrastructure
+- infrastructure layer
 
 ## debug-env for dcoker
 

@@ -17,6 +17,9 @@ path = "src/main.rs"
 [dependencies]
 # parse config
 config = "0.10"
+# http-framework
+tide = { version = "0.6" }
+http = "0.1"
 # serialization
 serde = { version = "1.0", features = ["derive"] }
 ## logger
